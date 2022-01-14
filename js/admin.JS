@@ -111,39 +111,27 @@ async function render() {
         `;
         $galleryPostList.append(imageCard);
         $(`#${ImageDoc.id}`).on('click',function(){
-            if(checklike == 1){
-                like++ ;
-                db.collection('images').doc(this.id).update({
-                    like,
-                });
-                var liketext  = document.getElementById(ImageDoc.id+"text");
-                liketext.innerHTML = like;
-                if(checklike == 0){
-                    checklike1 == 1
-                }
-                checklike = 0;
-            }else{
-                swal('Error','Voted!', 'error');
-            }
+            
+            like++ ;
+            db.collection('images').doc(this.id).update({
+                like,
+            });
+            var liketext  = document.getElementById(ImageDoc.id+"text");
+            liketext.innerHTML = like;
+         
         });
 
         $(`#${ImageDoc.id+'1'}`).on('click',function(){
-            if(checklike1 == 1){
-                like-- ;
-                var temp = this.id.substring(0,(this.id.length) -1);
-                console.log(temp);
-                db.collection('images').doc(temp).update({
-                    like,
-                });
-                var liketext  = document.getElementById(ImageDoc.id+"text");
-                liketext.innerHTML = like;
-                if(checklike1 == 0){
-                    checklike == 1
-                }
-                checklike1 = 0;
-            }else{
-                swal('Error','Voted!', 'error');
-            }
+           
+            like-- ;
+            var temp = this.id.substring(0,(this.id.length) -1);
+            console.log(temp);
+            db.collection('images').doc(temp).update({
+                like,
+            });
+            var liketext  = document.getElementById(ImageDoc.id+"text");
+            liketext.innerHTML = like;
+                
         });
 
         $(`#${ImageDoc.id+'2'}`).on('click',function(){
