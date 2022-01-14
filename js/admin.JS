@@ -29,7 +29,7 @@ const $likebtn = $("#likebtn");
 
 var checklike = 1;
 var checklike1 = 1;
-
+var nothing;
 // Binding change event for createPostImage
 $createPostImage.change(function (e) {
     // Get the file object when user choose any files

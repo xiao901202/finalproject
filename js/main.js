@@ -1,3 +1,4 @@
+var nothing;
 document.addEventListener('DOMContentLoaded', () => {
     
     //註冊
