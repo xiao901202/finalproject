@@ -42,7 +42,7 @@ $createPostImage.change(function (e) {
                 .then(imageURL => {
                     console.log("imageURL", imageURL);
                     $createPostImageURL.text(`Image URL: ${imageURL}`);
-                    const previewImgTag = `<img src="${imageURL}">`;
+                    const previewImgTag = `<img class="card-img-top" src="${imageURL}">`;
                     $imagePreview.append(previewImgTag);
                     $createPostBtn.attr('disabled', false);
                 })
