@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../dist/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"/>
+    <link rel="stylesheet" href="https://formden.com/static/assets/demos/bootstrap-iso/bootstrap-iso/bootstrap-iso.css" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   </head>
+<body>
+
+    <section class="loginpage">
+        
+        <div class="container">
+            <input type="checkbox" id="flip">
+            <div class="cover">
+            <div class="front">
+                <img src="../images/frontImg.jpg" alt="">
+                <div class="text">
+                <span class="text-1">I hope to pass all of my courses this term. <br></span>
+                <span class="text-2">Please!</span>
+                </div>
+            </div>
+            <div class="back">
+                <img class="backImg" src="../images/frontImg.jpg" alt="">
+                <div class="text">
+                    <span class="text-1">I hope to pass all of my courses this term. <br></span>
+                    <span class="text-2">Please!</span>
+                </div>
+            </div>
+            </div>
+            <div class="forms">
+                <div class="form-content">
+                <div class="login-form">
+                    <div class="title">Login</div>
+                <form action="#">
+                    <div class="input-boxes">
+                    <div class="input-box">
+                        <i class="fas fa-envelope"></i>
+                        <input type="text" placeholder="Enter your email" id="signinemail" required>
+                    </div>
+                    <div class="input-box">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" placeholder="Enter your password" id="signinpwd" required>
+                    </div>
+              
+                    <a href="javascript:document.querySelector('.loginpage').classList.add('none'); document.querySelector('.forgetpage').classList.remove('none');" class="text">Forget password?</a>
+
+                    <div class="button input-box">
+                        <div class="bootstrap-iso">
+                            <button id="signin" class ="btn btn-primary btn-lg btn-block" type="button" >Submit</button>
+                            <a href="../index.html"><button class ="btn btn-danger btn-lg btn-block" type="button" >Cancel</button></a>
+                        </div>
+                        
+                    </div>
+                    <div class="error" style="color:red" id="error-message"></div>
+                    <div class="text sign-up-text">Don't have an account? <label for="flip"><br>Sigup now</label></div>
+                    </div>
+                </form>
+            </div>
+                <div class="signup-form">
+                <div class="title">Signup</div>
+                <form action="#">
+                    <div class="input-boxes">
+                    <!-- <div class="input-box">
+                        <i class="fas fa-user"></i>
+                        <input type="text" placeholder="Enter your name" required>
+                    </div> -->
+                    <div class="input-box">
+                        <i class="fas fa-envelope"></i>
+                        <input type="text" placeholder="Enter your email" id="signupemail" required>
+                    </div>
+                    <div class="input-box">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" placeholder="Enter your password" id="signuppwd" required>
+                    </div>
+                    <div class="button input-box">
+                        <div class="bootstrap-iso">
+                            <button id="signup" class ="btn btn-info btn-lg btn-block" type="button" >Submit</button>
+                        </div>
+                        <!--<input type="submit" value="Create">-->
+                    </div>
+                    <div class="error" style="color:red" id="error-message"></div>
+                    <div class="text sign-up-text">Already have an account? <label for="flip"><br>Login now</label></div>
+                    </div>
+                    
+            </form>
+            </div>
+            </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="logged" class="none" >
+        <div class="container">
+            <div style="padding: 10px;"class = "text text-2" id = 'user-email'>
+            
+            </div>
+            <div style="padding: 10px;"class = "text text-2" id = 'user-uid'>
+                
+            </div>
+            <div style="padding: 10px;" id = 'user-email-verify'>
+                
+            </div>
+            
+            <div class="bootstrap-iso">
+                <button id="logout" class ="btn btn-info btn-lg btn-block" type="button" >Logout</button>
+                <div><br></div>
+                <button id="verify-email" class ="btn btn-success btn-lg btn-block" type="button" >verify-email</button>
+                <div><br></div>
+                <a href="../index.html"><button id="sure-danger" class ="btn btn-danger btn-lg btn-block normal" id="normal" type="button" >Homepage</button></a>
+                <div><br></div>
+                <a href="./admin.html"><button id="sure-danger" class ="btn btn-warning btn-lg btn-block admin none" id="normal" type="button" >Adminpage</button></a>
+            </div>
+        
+        
+        </div>
+    </section>
+
+
+    <section class="forgetpage none">
+        <div class="container">
+            <div class="forms">
+                <div class="form-content">
+                <div class="findpwd-form">
+                    <div class="title">Find Password</div>
+                <form action="#">
+                    <div class="input-boxes">
+                    <div class="input-box">
+                        <i class="fas fa-envelope"></i>
+                        <input type="text" placeholder="Enter your email" id="forgetemail" required>
+                    </div>
+                    <div class="text">Forgot password?</div>
+                    <div class="button input-box">
+                            <div class="bootstrap-iso">
+                                <button  id="findpwd" type="button" class="btn btn-primary btn-lg">Submit</button>
+                                
+                                <a href="javascript:document.querySelector('.loginpage').classList.remove('none'); document.querySelector('.forgetpage').classList.add('none');" class="btn btn-danger btn-lg">Cancel</a>
+                            </div>
+                        <!--<input type="submit" value="Signin">-->
+                    </div>
+                        <div class="error" id="error-message"></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-auth.js"></script>
+    <script>
+      var firebaseConfig = {
+    apiKey: "AIzaSyD79RIj4dIW9OJvuq4JN7gOMAyozeGAgTU",
+    authDomain: "ntut-final-1bf58.firebaseapp.com",
+    projectId: "ntut-final-1bf58",
+    storageBucket: "ntut-final-1bf58.appspot.com",
+    messagingSenderId: "908139157246",
+    appId: "1:908139157246:web:dd0f4ea7f51d5c6f96b7af"
+  };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      
+    </script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

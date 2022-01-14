@@ -1,0 +1,48 @@
+/* Reset CSS */
+*{
+    margin:0;
+    padding:0;
+    font-family: 'Poppins', sans-serif;
+    cursor: url(https://cur.cursors-4u.net/cursors/cur-2/cur116.cur), auto !important;
+
+  }
+  .banner{
+    width: 100%;
+    height: 50vh;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+  }
+  .banner video{
+    position: absolute;
+    width: 100%;
+    height: 155%;
+    top:0;
+    left:0;
+    object-fit: cover;
+  }
+  .banner h2{
+    position: absolute;
+    top:-223px;
+    left:0;
+    width: 100%;
+    height: 155%;
+    font-size: 26vw;
+    text-align: center;
+    line-height:107vh;
+    text-transform:uppercase;
+    background-color: #fff;
+    mix-blend-mode: screen;
+    
+  }
+  
+  .my-actions { margin: 0 2em; }
+.order-1 { order: 1; }
+.order-2 { order: 2; }
+.order-3 { order: 3; }
+
+.right-gap {
+  margin-right: auto;
+}
