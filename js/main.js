@@ -1,7 +1,6 @@
 var nothing;
 document.addEventListener('DOMContentLoaded', () => {
     
-    //註冊
     function createUser() {
         let email = document.getElementById('signupemail').value;
         let password = document.getElementById('signuppwd').value;
@@ -16,7 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {
           });
       }
     
-      // 登入
       function signIn() {
         let email = document.getElementById('signinemail').value;
         let password = document.getElementById('signinpwd').value;
@@ -33,13 +31,11 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
 
-    // 改變錯誤訊息
     const errorMessage = document.getElementById('error-message');
     function changeErrMessage(message) {
         errorMessage.innerHTML = message;
     }
 
-    // 登入 or 註冊
     const btnSignin = document.getElementById('signin');
     btnSignin.addEventListener('click', signIn)
 
@@ -56,16 +52,11 @@ document.addEventListener('DOMContentLoaded', () => {
         if(e.code === 'Enter' || e.code === 'NumpadEnter') createUser();
     });
 
-
-
-    //驗證登入狀態
     firebase.auth().onAuthStateChanged(user => {
 
-        // 登入中
         if(user) {
             console.log("user", user)
     
-          // 隱藏登入區塊
           document.querySelector('.container').classList.add('none');
         
           changeErrMessage('');
@@ -80,7 +71,6 @@ document.addEventListener('DOMContentLoaded', () => {
           }else{
             console.log("33")
           }
-          // 更新 User 資訊
          
         
           const uid = user.uid;
@@ -89,8 +79,6 @@ document.addEventListener('DOMContentLoaded', () => {
           document.getElementById('user-uid').innerHTML = `Uid：${uid}`;
           document.getElementById('user-email-verify').innerHTML = `Verify-email：${emailVerify}`;       
     
-    
-          // 信箱驗證
           const btnVerifyEmail = document.getElementById('verify-email');
           btnVerifyEmail.addEventListener('click', () => {
             firebase.auth().languageCode = 'zh-TW'; 
@@ -101,7 +89,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
           });
     
-          // 登出
           const btnLogOut = document.getElementById('logout');
           btnLogOut.addEventListener('click', () => {
             firebase
@@ -118,7 +105,6 @@ document.addEventListener('DOMContentLoaded', () => {
   
     
         }
-        // 未登入
         else {
           console.log("QQ")
           const btnUserForgotSure = document.getElementById('findpwd');

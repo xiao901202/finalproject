@@ -1,4 +1,4 @@
-// Your web app's Firebase configuration
+
 const firebaseConfig = {
     apiKey: "AIzaSyD79RIj4dIW9OJvuq4JN7gOMAyozeGAgTU",
     authDomain: "ntut-final-1bf58.firebaseapp.com",
@@ -7,7 +7,6 @@ const firebaseConfig = {
     messagingSenderId: "908139157246",
     appId: "1:908139157246:web:dd0f4ea7f51d5c6f96b7af"
   };
-// Initialize Firebase
 const app = firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 
@@ -51,22 +50,16 @@ db
     })
 
 var photoURL ;
-// Binding change event for createPostImage
 $createPostImage.change(function (e) {
-    // Get the file object when user choose any files
     const file = this.files[0];
     const fileName = file.name;
-    // Setup folder path for firebase storage
     const storagePath = `galleryImages/${fileName}`;
     const ref = firebase.storage().ref(storagePath);
-    // Upload file to firebase storage
     console.log(`Start Upload image to: ${storagePath}`);
     $createPostImageURL.text(`Start Upload image to: ${storagePath}`);
     ref.put(file)
         .then(snapshot => {
-            // If file is uploaded successfully
             console.log(snapshot);
-            // Get image URL
             ref.getDownloadURL()
                 .then(imageURL => {
                     console.log("imageURL", imageURL);
@@ -105,7 +98,6 @@ async function addgallery(event) {
 
 firebase.auth().onAuthStateChanged(user => {
 
-    // 登入中
     if(user) {
         console.log("user", user)
         const btnLogOut = document.getElementById('logout');
@@ -121,7 +113,6 @@ firebase.auth().onAuthStateChanged(user => {
           })
      
     }
-    // 未登入
     else {
         console.log("QQ")
         window.location.assign("./index.html");
