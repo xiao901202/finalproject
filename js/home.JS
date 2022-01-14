@@ -1,4 +1,3 @@
-// Your web app's Firebase configuration
 
 const firebaseConfig = {
     apiKey: "AIzaSyD79RIj4dIW9OJvuq4JN7gOMAyozeGAgTU",
@@ -9,7 +8,6 @@ const firebaseConfig = {
     appId: "1:908139157246:web:dd0f4ea7f51d5c6f96b7af"
   };
 
-// Initialize Firebase
 const app = firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 const storageRef = firebase.storage().ref();
@@ -30,7 +28,6 @@ var checklike = 1;
 var checklike1 = 1;
 var checkemail = 0;
 
-// Binding change event for createPostImage
 async function render() {
     const images = db.collection('images');
     const todoDocs = await images.get();
@@ -74,12 +71,12 @@ async function render() {
             }
             else{
                 swal('Error','Voted!', 'error');
-            }}
+          }}
           else if(check == 1 && checkemail == 0){
             swal('Error','Please Verify your email first!', 'error');
           }
           else{
-              wal('Error','Please login first!', 'error');
+            swal('Error','Please login first!', 'error');
           }
         });
 
@@ -118,8 +115,6 @@ async function render() {
 render();
 
 firebase.auth().onAuthStateChanged(user => {
-
-    // 登入中
     
     if(user) {
       document.querySelector('.login').classList.remove('none');
@@ -168,7 +163,6 @@ firebase.auth().onAuthStateChanged(user => {
           })
      
     }
-    // 未登入
     else {
         check = 0;
         checkemail = 0;
