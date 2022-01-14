@@ -85,9 +85,9 @@ document.addEventListener('DOMContentLoaded', () => {
         
           const uid = user.uid;
           const emailVerify = user.emailVerified;
-          document.getElementById('user-email').innerHTML = `您的帳號：${email}`;
-          document.getElementById('user-uid').innerHTML = `您的Uid：${uid}`;
-          document.getElementById('user-email-verify').innerHTML = `您的信箱是否驗證：${emailVerify}`;       
+          document.getElementById('user-email').innerHTML = `Account：${email}`;
+          document.getElementById('user-uid').innerHTML = `Uid：${uid}`;
+          document.getElementById('user-email-verify').innerHTML = `Verify-email：${emailVerify}`;       
     
     
           // 信箱驗證
