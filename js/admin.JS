@@ -219,7 +219,7 @@ firebase.auth().onAuthStateChanged(user => {
     // 未登入
     else {
         console.log("QQ")
-        window.location.assign("./index.html");
+        window.location.assign("../index.html");
 
     }
 
