@@ -28,6 +28,7 @@ const $likebtn = $("#likebtn");
 var check = 0;
 var checklike = 1;
 var checklike1 = 1;
+var checkemail = 0;
 
 // Binding change event for createPostImage
 async function render() {
@@ -58,7 +59,7 @@ async function render() {
         
 
         $(`#${ImageDoc.id}`).on('click',function(){
-          if(check == 1){
+          if(check == 1 && checkemail == 1){
             if(checklike == 1){
                 like++ ;
                 db.collection('images').doc(this.id).update({
@@ -70,17 +71,20 @@ async function render() {
                     checklike1 == 1
                 }
                 checklike = 0;
-            }else{
+            }
+            else{
                 swal('Error','Voted!', 'error');
             }}
-
-            else{
-              swal('Error','Please login first!', 'error');
-            }
+          else if(check == 1 && checkemail == 0){
+            swal('Error','Please Verify your email first!', 'error');
+          }
+          else{
+              wal('Error','Please login first!', 'error');
+          }
         });
 
         $(`#${ImageDoc.id+'1'}`).on('click',function(){
-            if(check == 1){
+            if(check == 1 && checkemail == 1){
               if(checklike1 == 1){
                   like-- ;
                   var temp = this.id.substring(0,(this.id.length) -1);
@@ -97,7 +101,9 @@ async function render() {
               }else{
                   swal('Error','Voted!', 'error');
               }}
-
+            else if(check == 1 && checkemail == 0){
+              swal('Error','Please Verify your email first!', 'error');
+            }
             else{
               swal('Error','Please login first!', 'error');
             }
@@ -120,6 +126,9 @@ firebase.auth().onAuthStateChanged(user => {
       document.querySelector('.unlogin').classList.add('none');
         checklike = 1;
         check = 1;
+        if(user.emailVerified){
+          checkemail = 1;
+        }
         console.log("user", user)
         const btnLogOut = document.getElementById('logout');
           btnLogOut.addEventListener('click', () => {
@@ -162,6 +171,7 @@ firebase.auth().onAuthStateChanged(user => {
     // 未登入
     else {
         check = 0;
+        checkemail = 0;
         console.log("QQ")
         const btnLogOut = document.getElementById('logout');
         btnLogOut.addEventListener('click', () => {
